@@ -1,1 +1,0 @@
-Server=tcp:projekt-zaliczeniowy.database.windows.net,1433;Initial Catalog=projektDB;Persist Security Info=False;User ID=naszAdmin;Password=password#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
