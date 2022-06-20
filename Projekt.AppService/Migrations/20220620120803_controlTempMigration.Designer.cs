@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projekt.AppService;
 
@@ -10,9 +11,10 @@ using Projekt.AppService;
 namespace Projekt.AppService.Migrations
 {
     [DbContext(typeof(ProjektDb))]
-    partial class ProjektDbModelSnapshot : ModelSnapshot
+    [Migration("20220620120803_controlTempMigration")]
+    partial class controlTempMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

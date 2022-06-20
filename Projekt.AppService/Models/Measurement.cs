@@ -7,6 +7,8 @@ namespace Projekt.AppService.Models
     public int TemperatureC { get; set; }
 
     public int Humidity { get; set; }
+    public string DateMeasured { get; set; }
 
+    // Add DateAdded maybe
   }
 }

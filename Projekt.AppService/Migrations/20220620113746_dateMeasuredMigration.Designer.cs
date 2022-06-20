@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projekt.AppService;
 
@@ -10,9 +11,10 @@ using Projekt.AppService;
 namespace Projekt.AppService.Migrations
 {
     [DbContext(typeof(ProjektDb))]
-    partial class ProjektDbModelSnapshot : ModelSnapshot
+    [Migration("20220620113746_dateMeasuredMigration")]
+    partial class dateMeasuredMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,22 +22,6 @@ namespace Projekt.AppService.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("Projekt.AppService.Models.ControlTemp", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ControlTemperature")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ControlTemps", (string)null);
-                });
 
             modelBuilder.Entity("Projekt.AppService.Models.Measurement", b =>
                 {

@@ -10,6 +10,7 @@ namespace Projekt.AppService
     }
 
     public DbSet<Measurement> Measurements { get; set; }
+    public DbSet<ControlTemp> ControlTemps { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -19,6 +20,11 @@ namespace Projekt.AppService
       measurementEntity.ToTable("Measurements");
       measurementEntity.Property(m => m.TemperatureC).IsRequired();
       measurementEntity.Property(m => m.Humidity).IsRequired();
+      measurementEntity.Property(m => m.DateMeasured).IsRequired().HasMaxLength(128);
+
+      var controlTempEntity = modelBuilder.Entity<ControlTemp>();
+      controlTempEntity.ToTable("ControlTemps");
+      controlTempEntity.Property(m => m.ControlTemperature).IsRequired();
     }
   }
 }
