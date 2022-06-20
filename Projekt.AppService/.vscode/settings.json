@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/90cb245c-f719-4fa6-bb48-1f806a29cc30/microsoft.web/sites/subscriptions/90cb245c-f719-4fa6-bb48-1f806a29cc30/resourceGroups/projekt-zaliczeniowy/providers/Microsoft.Web/sites/projekt-cc-iot",
+  "appService.deploySubpath": "publish"
+}
