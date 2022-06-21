@@ -4,9 +4,9 @@ namespace Projekt.AppService.Models
   {
     public int Id { get; set; }
 
-    public int TemperatureC { get; set; }
+    public float TemperatureC { get; set; }
 
-    public int Humidity { get; set; }
+    public float Humidity { get; set; }
     public string DateMeasured { get; set; }
 
     // Add DateAdded maybe
