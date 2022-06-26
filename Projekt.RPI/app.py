@@ -37,8 +37,7 @@ while(True):
     #humidity = 45.3
     #temperature = 22.5
     print('Temp={0:0.1f}*C Humidity={1:0.1f}%'.format(temperature, humidity))
-    
-    
+
     class DateTimeEncoder(JSONEncoder):
         def default(self, obj):
             if isinstance(obj, (datetime.date, datetime.datetime)):
@@ -50,26 +49,24 @@ while(True):
         "DateMeasured": str(datetime.datetime.now())
     }
 
-    requests.post('https://projekt-cc-iot.azurewebsites.net/api/measurements', json=temp_hum)
+    requests.post(
+        'https://projekt-cc-iot.azurewebsites.net/api/measurements', json=temp_hum)
 
-
-    target_temp = requests.get( 'https://projekt-cc-iot.azurewebsites.net/api/control/last')
+    target_temp = requests.get(
+        'https://projekt-cc-iot.azurewebsites.net/api/control/last')
     target_temp_json = json.loads(target_temp.text)
     print(target_temp_json['controlTemperature'])
-    
-    
+
     if humidity <= 50:
         GPIO.output(LED1_PIN, GPIO.HIGH)
         GPIO.output(LED2_PIN, GPIO.LOW)
     else:
         GPIO.output(LED1_PIN, GPIO.LOW)
         GPIO.output(LED2_PIN, GPIO.HIGH)
-        
-    if temperature>float(target_temp_json['controlTemperature']):
+
+    if temperature > float(target_temp_json['controlTemperature']):
         GPIO.output(MOTOR_PIN, GPIO.HIGH)
     else:
         GPIO.output(MOTOR_PIN, GPIO.LOW)
-    
-    
 
     time.sleep(30)
